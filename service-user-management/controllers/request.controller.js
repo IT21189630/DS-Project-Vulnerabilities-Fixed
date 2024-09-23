@@ -1,7 +1,7 @@
 const {OAuth2Client} = require('google-auth-library')
 
 const generateAuthUrl = async(req,res,next) => {
-    req.header('Access-Control-Allow-Origin', 'http://localhost:5173')
+    req.header('Access-Control-Allow-Origin', 'http://localhost:3000')
     res.header('Referrer-Policy', 'no-referrer-when-downgrade')
     
     const redirectUrl = 'http://127.0.0.1:4000/oauth'

@@ -1,7 +1,5 @@
 const {OAuth2Client} = require('google-auth-library')
 const studentModel = require('../models/student.model')
-const instructorModel = require('../models/instructor.model')
-const adminModel = require('../models/admin.model')
 const bcrypt = require('bcrypt')
 const {v4: uuidv4} = require('uuid')
 
@@ -36,14 +34,6 @@ const sendAuthRequest = async(req,res,next) => {
 
         //check provided email is already registered as any role
         const duplicate = await studentModel.findOne({ email: userData.email }).exec();
-
-        // if (!duplicate) {
-        //     duplicate = await instructorModel.findOne({ email: userData.email }).exec();
-        // }
-
-        // if (!duplicate) {
-        //     duplicate = await adminModel.findOne({ email: userData.email }).exec();
-        // }
 
         if (!duplicate) {
             try {
