@@ -11,7 +11,7 @@ const generateAuthUrl = async(req,res,next) => {
         redirectUrl
     )
 
-    const authorizeUrl = oAuth2Client.generateAuthUrl({
+    const authorizeUrl = await oAuth2Client.generateAuthUrl({
         access_type: 'offline',
         scope: ['https://www.googleapis.com/auth/userinfo.profile' ,'https://www.googleapis.com/auth/userinfo.email'],
         prompt: 'consent'
