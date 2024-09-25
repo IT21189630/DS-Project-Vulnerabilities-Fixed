@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { FaDollarSign } from "react-icons/fa";
 import { FaRegCirclePlay } from "react-icons/fa6";
 import { sanitizeObject } from '../../../sanitization_functions';
@@ -10,7 +10,6 @@ import "./ViewCourse.css";
 
 function PurchasedCourse() {
   let { id } = useParams();
-  const navigate = useNavigate();
 
   const [course, setCourse] = useState();
   const [courseImage, setCourseImage] = useState();
@@ -110,16 +109,17 @@ function PurchasedCourse() {
             </span>
           </div>
           <div className="view-content-details-con-2-contents">
-            {courseContents.map((content, index) => (
               <div className="view-content-list">
-                <div className="view-content-list-item">
-                  <div className="view-content-list-item-image" key={index}>
+              {courseContents.map((content, index) => (
+                <div className="view-content-list-item"  key={index}>
+                  <div className="view-content-list-item-image">
                     <iframe
                       style={{ width: "100%", height: "100%" }}
                       src={`https://www.youtube.com/embed/${getYouTubeVideoId(
                         content.lectureVideo
                       )}`}
                       allowFullScreen
+                      sandbox=""
                     ></iframe>
                   </div>
                   <div className="view-content-list-item-details">
@@ -135,8 +135,8 @@ function PurchasedCourse() {
                     </div>
                   </div>
                 </div>
+                ))}
               </div>
-            ))}
           </div>
         </div>
       </div>
