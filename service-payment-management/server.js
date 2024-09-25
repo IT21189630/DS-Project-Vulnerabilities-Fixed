@@ -7,6 +7,7 @@ const errorHandler = require("./middlewares/errorMiddleware");
 const connectDB = require("./config/connectDb");
 const verifyJWT = require("./middlewares/verifyJWTMiddleware");
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
+const helmet = require('helmet');
 
 connectDB();
 const app = express();
@@ -31,6 +32,20 @@ app.use("/learnup/api/payment-management", require("./routes/payment.routes"));
 
 app.use(verifyJWT);
 app.use(errorHandler);
+
+// Use helmet to set security-related headers
+app.use(helmet());
+
+// Enable the X-Frame-Options header to prevent clickjacking
+app.use(helmet.frameguard({ action: 'deny' }));
+
+// Middleware to block access to hidden files and directories
+app.use((req, res, next) => {
+  if (req.url.match(/(^|\/)\.[a-zA-Z0-9]/)) {
+      return res.status(403).send('Access Forbidden to hidden files or directories');
+  }
+  next();
+});
 
 let serverPromise = new Promise((resolve, reject) => {
   mongoose.connection.once("open", () => {
