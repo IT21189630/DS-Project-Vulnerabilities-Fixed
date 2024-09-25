@@ -1,6 +1,3 @@
-const courseEnrollment = require('../models/enrollment');
-const emailService = require('../services/emailService');
-const smsService = require('../services/smsService');
 const Student = require('../models/student');
 
 // Controller to get notification history

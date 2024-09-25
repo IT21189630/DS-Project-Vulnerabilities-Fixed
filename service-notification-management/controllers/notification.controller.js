@@ -1,4 +1,3 @@
-const courseEnrollment = require('../models/enrollment');
 const emailService = require('../services/emailService');
 const smsService = require('../services/smsService');
 const Notification = require('../models/notification');

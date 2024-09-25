@@ -1,6 +1,5 @@
 const Contact = require("../models/contact.model");
 const Instructor = require("../models/instructor.model");
-const Admin = require("../models/admin.model");
 const asyncHandler = require("express-async-handler");
 
 // Create a new contact request
