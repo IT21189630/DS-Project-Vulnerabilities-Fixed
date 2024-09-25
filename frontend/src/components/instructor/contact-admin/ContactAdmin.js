@@ -99,7 +99,7 @@ function ContactAdmin() {
 							</tr>
 							{inquiries.map((inquiry) => {
 								return (
-									<tr>
+									<tr key={inquiry._id}>
 										<td>
 											{format(
 												new Date(inquiry.createdAt),
