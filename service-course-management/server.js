@@ -18,7 +18,7 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // Use helmet to set security-related headers
-app.use(helmet());y
+app.use(helmet());
 
 // Enable the X-Frame-Options header to prevent clickjacking
 app.use(helmet.frameguard({ action: 'deny' }));

@@ -14,7 +14,7 @@ const sendConfirmationSMS = async (course_id) => {
     return response.data; // Return the response from Notify.lk
   } catch (error) {
     console.error(sanitizeObject(error.response.data));
-    res.status(500).send('Failed to send notification');
+    throw new Error('Failed to send notification');
 }
 };
 
