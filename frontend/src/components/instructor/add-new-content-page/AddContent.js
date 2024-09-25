@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import './AddContent.css'
 import { toast } from "react-hot-toast";
 import axios from "axios";
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams} from 'react-router-dom';
 import Image1 from '../../../images/updateContent.jpg'
 
 
 function AddContent() {
 
     let {id} = useParams();
-    const navigate = useNavigate();
+
 
     const [lectureVideo, setLectureVideo] = useState("");
     const [lectureName, setLectureName] = useState("");
