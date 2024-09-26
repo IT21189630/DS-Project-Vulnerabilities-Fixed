@@ -5,10 +5,10 @@ const dbConnect = asyncHandler( async() => {
     const conObj = await mongoose.connect(process.env.MONGO_URI)
 
     if(conObj){
-        console.log(`👽 Database is connected to the host ${conObj.connection.host}`);
+        console.log("👽 Database is connected to the host " + conObj.connection.host);
     }
     else{
-        console.log(`Database not connected!`);
+        console.log("Database not connected!");
     }
 })
 

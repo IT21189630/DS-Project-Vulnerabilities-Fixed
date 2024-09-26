@@ -52,11 +52,9 @@ app.use((req, res, next) => {
 
 let serverPromise = new Promise((resolve, reject) => {
   mongoose.connection.once("open", () => {
-    console.log(`🚀 data connection with users collection established! 🚀`);
+    console.log("🚀 data connection with users collection established! 🚀");
     const server = app.listen(PORT, () => {
-      console.log(
-        `👦 Notification management service is up and running on port: ${PORT} 👦`
-      );
+      console.log("👦 Notification management service is up and running on port: " + PORT + " 👦");
       resolve(server);
     });
   });
