@@ -118,8 +118,8 @@ function PurchasedCourse() {
                       src={`https://www.youtube.com/embed/${getYouTubeVideoId(
                         content.lectureVideo
                       )}`}
+                      title={`Lecture Video: ${content.lectureName}`}
                       allowFullScreen
-                      sandbox=""
                     ></iframe>
                   </div>
                   <div className="view-content-list-item-details">
